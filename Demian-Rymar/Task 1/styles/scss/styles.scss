@@ -1,0 +1,67 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    padding: 0;
+    background: lightgray;
+}
+
+.wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: calc(128px + 15px);
+    height: calc(128px + 15px);
+    border-radius: 50%;
+    background: linear-gradient(-230deg, rgb(100, 50, 252), lightblue, blue);
+}
+
+.clock {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 128px;
+    height: 128px;
+    background: lightgray;
+    border-radius: 50%;
+}
+
+span {
+    width: 11.2px;
+    height: 11.2px;
+    background: linear-gradient(lightblue, blue);
+    border-radius: 50%;
+    z-index: 1;
+}
+
+.clock::before,
+.clock::after {
+    position: absolute;
+    content: "";
+    top: calc(64px * 0.25);
+    width: 6.4px;
+    background: linear-gradient(lightblue, blue);
+    border-radius: 8px;
+    transform-origin: center calc(100% - calc(6.4px / 2));
+    animation: anim infinite linear;
+}
+
+.clock::before {
+    height: 51.2px;
+    animation-duration: 1s;
+}
+
+.clock::after {
+    top: calc(64px * 0.25 + 20px);
+    height: 30px;
+    animation-duration: 60s;
+}
+
+@keyframes anim {
+    to {
+        transform: rotate(360deg);
+    }
+}
